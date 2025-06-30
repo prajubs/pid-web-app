@@ -1,0 +1,42 @@
+<!-- public/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - PID Controller</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <h1>PID Controller Dashboard</h1>
+    <a href="/logout" class="logout">Logout</a>
+
+    <section class="form-section">
+      <h2>Set PID Parameters</h2>
+      <form id="pid-form">
+        <input type="number" step="0.01" name="kp" placeholder="Kp" required />
+        <input type="number" step="0.01" name="ki" placeholder="Ki" required />
+        <input type="number" step="0.01" name="kd" placeholder="Kd" required />
+        <input type="number" step="0.1" name="setpoint" placeholder="Setpoint" required />
+        <button type="submit">Update</button>
+      </form>
+    </section>
+
+    <section class="live-data">
+      <h2>Live Output</h2>
+      <p>Temperature: <span id="temp">--</span> °C</p>
+      <p>PID Output: <span id="output">--</span> %</p>
+    </section>
+
+    <section class="graph-section">
+      <h2>PID Output Over Time</h2>
+      <a href="/export-csv" class="btn-download">⬇ Export CSV</a>
+      <canvas id="pidChart"></canvas>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
